@@ -5,8 +5,15 @@ import "../widgets/search_box.dart";
 import "../widgets/todo_item.dart";
 import "../models/todo.dart";
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _Home();
+}
+
+class _Home extends State<Home> {
+  final _todoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +29,28 @@ class Home extends StatelessWidget {
             child: Column(
               children: [
                 SearchBox(),
-                ListView(
-                  shrinkWrap: true,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 50, bottom: 20),
-                      child: Text(
-                        "Current ToDos",
-                        style: TextStyle(
-                          color: fgColor,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w500,
+                Expanded(
+                  child: ListView(
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 50, bottom: 20),
+                        child: Text(
+                          "Current ToDos",
+                          style: TextStyle(
+                            color: fgColor,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                    for (ToDo todo in ToDo.todoList) ToDoItem(todo: todo)
-                  ],
-                )
+                      for (ToDo todo in ToDo.todoList)
+                        ToDoItem(
+                          todo: todo,
+                          onDeleteItem: _deleteTodoItem,
+                        )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -66,6 +78,7 @@ class Home extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
+                      controller: _todoController,
                       decoration: InputDecoration(
                         hintText: "Add a new todo item",
                         hintStyle: TextStyle(color: textColor),
@@ -78,7 +91,16 @@ class Home extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: 20, right: 20),
                   child: ElevatedButton(
                     child: Text("+", style: TextStyle(fontSize: 40)),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        ToDo.todoList.add(ToDo(
+                          id: ++ToDo.latestId,
+                          text: _todoController.text,
+                        ));
+                      });
+
+                      _todoController.clear();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: buttonBlue,
                       minimumSize: Size(60, 60),
@@ -92,5 +114,9 @@ class Home extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _deleteTodoItem(int id) {
+    setState(() => ToDo.todoList.removeWhere((item) => item.id == id));
   }
 }
