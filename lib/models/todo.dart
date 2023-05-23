@@ -10,8 +10,5 @@ class ToDo {
   });
 
   static int latestId = 1;
-  static List<ToDo> todoList = [
-    ToDo(id: 0, text: "Lorem Ipsum", isDone: false),
-    ToDo(id: 1, text: "Lorem Ipsum", isDone: true),
-  ];
+  static List<ToDo> todoList = [];
 }

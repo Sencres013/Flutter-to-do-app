@@ -10,7 +10,7 @@ class ToDoItem extends StatefulWidget {
   });
 
   final ToDo todo;
-  // TODO: add proper annotation
+  // TODO: add proper type annotation
   final onDeleteItem;
 
   @override
@@ -28,7 +28,7 @@ class _ToDoItem extends State<ToDoItem> {
           borderRadius: BorderRadius.circular(20),
         ),
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 20,
+          horizontal: 15,
           vertical: 5,
         ),
         tileColor: fgColor,
