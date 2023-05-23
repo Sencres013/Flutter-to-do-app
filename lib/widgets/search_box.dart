@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:todoapp/data/colors.dart";
+import "../data/colors.dart";
 
 class SearchBox extends StatelessWidget {
   const SearchBox({super.key});
@@ -9,7 +9,7 @@ class SearchBox extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: white,
+        color: fgColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: TextField(

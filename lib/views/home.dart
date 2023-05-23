@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
-import "package:todoapp/data/colors.dart";
-import "package:todoapp/widgets/app_bar.dart";
-import "package:todoapp/widgets/search_box.dart";
+import "../data/colors.dart";
+import "../widgets/app_bar.dart";
+import "../widgets/search_box.dart";
+import "../widgets/todo_item.dart";
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -26,12 +27,13 @@ class Home extends StatelessWidget {
                   child: Text(
                     "Current ToDos",
                     style: TextStyle(
-                      color: white,
+                      color: fgColor,
                       fontSize: 30,
                       fontWeight: FontWeight.w500,
-                    )
-                  )
-                )
+                    ),
+                  ),
+                ),
+                ToDoItem(),
               ],
             )
           ],
