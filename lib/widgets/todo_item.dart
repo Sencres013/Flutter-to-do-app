@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import '../data/colors.dart';
+import "../models/todo.dart";
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  const ToDoItem({
+    super.key,
+    required this.todo,
+  });
+
+  final ToDo todo;
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +25,15 @@ class ToDoItem extends StatelessWidget {
         ),
         tileColor: fgColor,
         leading: Icon(
-          Icons.check_box,
+          todo.isDone ? Icons.check_box : Icons.check_box_outline_blank,
           color: Color.fromARGB(178, 28, 119, 255),
         ),
         title: Text(
-          "Lorem ipsum",
+          todo.text,
           style: TextStyle(
             fontSize: 16,
             color: textColor,
-            decoration: TextDecoration.lineThrough,
+            decoration: todo.isDone ? TextDecoration.lineThrough : null,
           ),
         ),
         trailing: Container(
