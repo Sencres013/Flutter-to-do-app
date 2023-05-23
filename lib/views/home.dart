@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:todoapp/data/colors.dart";
 import "package:todoapp/widgets/app_bar.dart";
 import "package:todoapp/widgets/search_box.dart";
 
@@ -8,12 +9,31 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: const Column(
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 15,
+        ),
+        child: Column(
           children: [
             SearchBox(),
+            ListView(
+              shrinkWrap: true,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 50, bottom: 20),
+                  child: Text(
+                    "Current ToDos",
+                    style: TextStyle(
+                      color: white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                    )
+                  )
+                )
+              ],
+            )
           ],
         ),
       ),

@@ -7,12 +7,12 @@ class SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const TextField(
+      child: TextField(
         decoration: InputDecoration(
             contentPadding: EdgeInsets.all(0),
             prefixIcon: Icon(
