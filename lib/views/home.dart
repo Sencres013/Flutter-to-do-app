@@ -25,11 +25,11 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: const CustomAppBar(),
       body: Stack(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 15,
             ),
@@ -40,8 +40,8 @@ class _Home extends State<Home> {
                   child: ListView(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 50, bottom: 20),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 50, bottom: 20),
+                        child: const Text(
                           "Current ToDos",
                           style: TextStyle(
                             color: fgColor,
@@ -67,14 +67,14 @@ class _Home extends State<Home> {
               children: [
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(bottom: 20, right: 20, left: 20),
-                    padding: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.only(bottom: 20, right: 20, left: 20),
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 5,
                     ),
                     decoration: BoxDecoration(
                       color: fgColor,
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Colors.black,
                           offset: Offset(0.0, 0.0),
@@ -86,19 +86,18 @@ class _Home extends State<Home> {
                     ),
                     child: TextField(
                       controller: _todoController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Add a new todo item",
                         hintStyle: TextStyle(color: textColor),
                         border: InputBorder.none,
                       ),
-                      style: TextStyle(color: textColor),
+                      style: const TextStyle(color: textColor),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 20, right: 20),
+                  margin: const EdgeInsets.only(bottom: 20, right: 20),
                   child: ElevatedButton(
-                    child: Text("+", style: TextStyle(fontSize: 40)),
                     onPressed: () {
                       setState(() {
                         ToDo.todoList.add(ToDo(
@@ -114,6 +113,7 @@ class _Home extends State<Home> {
                       minimumSize: Size(60, 60),
                       elevation: 10,
                     ),
+                    child: const Text("+", style: TextStyle(fontSize: 40)),
                   ),
                 ),
               ],

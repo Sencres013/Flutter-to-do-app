@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: bgColor,
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
